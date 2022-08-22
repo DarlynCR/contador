@@ -40,12 +40,26 @@ class _ContadorPagesState extends State<ContadorPage> {
       children: <Widget>[
         SizedBox(width: 30.0),
         FloatingActionButton(
-            onPressed: () {}, child: Icon(Icons.exposure_zero)),
+            onPressed: _restart, child: Icon(Icons.exposure_zero)),
         Expanded(child: SizedBox()),
-        FloatingActionButton(onPressed: () {}, child: Icon(Icons.remove)),
+        FloatingActionButton(onPressed: _quitar, child: Icon(Icons.remove)),
         SizedBox(width: 5.0),
-        FloatingActionButton(onPressed: () {}, child: Icon(Icons.add)),
+        //Se pone sin () para indicar la referencia a la función, para que se ejecute cuando se presiona el botón
+        //y no en el momento que se crea
+        FloatingActionButton(onPressed: _agregar, child: Icon(Icons.add)),
       ],
     );
+  }
+
+  void _agregar() {
+    setState(() => _conteo++);
+  }
+
+  void _quitar() {
+    setState(() => _conteo--);
+  }
+
+  void _restart() {
+    setState(() => _conteo = 0);
   }
 }
