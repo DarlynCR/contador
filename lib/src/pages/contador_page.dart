@@ -30,18 +30,22 @@ class _ContadorPagesState extends State<ContadorPage> {
           ),
         ],
       )),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          // Instrucciones cuando se de click
-          setState(() {
-            // redibujar el widget
-            _conteo++;
-          });
+      floatingActionButton: _crearBotones(),
+    );
+  }
 
-          print('Hola mundo $_conteo');
-        }, // si se define en null, no se puede presionar
-      ),
+  Widget _crearBotones() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        SizedBox(width: 30.0),
+        FloatingActionButton(
+            onPressed: () {}, child: Icon(Icons.exposure_zero)),
+        Expanded(child: SizedBox()),
+        FloatingActionButton(onPressed: () {}, child: Icon(Icons.remove)),
+        SizedBox(width: 5.0),
+        FloatingActionButton(onPressed: () {}, child: Icon(Icons.add)),
+      ],
     );
   }
 }
